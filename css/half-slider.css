@@ -13,3 +13,11 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+.navbar li a {
+  font-weight: bold;
+}
+
+.bg-dark {
+  background-color: #ffffff;
+}
