@@ -129,8 +129,6 @@
     </div>
     <!-- /.container -->
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-
     <!-- graph modal -->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal_graph">
         <div class="modal-dialog modal-lg">
@@ -138,7 +136,7 @@
 
             <!-- modal title -->
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Graph of Average Height and Diameter</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -146,7 +144,7 @@
 
             <!-- modal body -->
             <div class="modal-body">
-              ... 
+              <canvas id="graph" width="400" height="400"></canvas>
             </div>    
             
             <!-- modal footer -->
@@ -162,16 +160,58 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- ChartJS -->
+    <script type="text/javascript" charset="utf8" src="./vendor/chartjs/Chart.bundle.min.js"></script>   
+
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="./vendor/datatables/jquery.dataTables.js"></script>   
     <script type="text/javascript">
       $(document).ready( function () {
+        // Initialize data tables
         var table = $('#datatable').DataTable();
-
         $('#datatable tbody').on('click', 'tr', function () {
-            var data = table.row( this ).data();
-            alert( 'You clicked on '+data[0]+'\'s row' );
+          $('#modal_graph').modal();
+          var data = table.row( this ).data();
+          console.log( 'You clicked on '+data[0]+'\'s row' );
         });          
+
+        // Initialize graph
+        var ctx = document.getElementById("graph").getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ["2017", "2018"],
+              datasets: [{
+                label: 'Height',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1,
+                data: [
+                  1.5, 
+                  3.4
+                ]
+              }, {
+                label: 'Diameter',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                data: [
+                  5.6,
+                  7.9
+                ]
+            }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });        
+
       });      
     </script>
   </body>
