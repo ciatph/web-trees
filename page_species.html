@@ -8,16 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tree Data - Phase 2</title>
+    <title>Tree Data - Species</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/logo-nav.css" rel="stylesheet">
-
-    <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="./vendor/datatables/jquery.dataTables.css">
   </head>
 
   <body>
@@ -64,68 +61,52 @@
 
     <!-- Page Content -->
     <div class="container">
-      <h1 class="mt-5">Phase 2 Tree Species List</h1>
-      <p class="lead">Below are a list of tree species for Phase 2. Click on <i>View Graph</i> to view its attributes and average height and diameter graph.</p><br><br>
+        <h1 class="mt-5">Species One</h1><br>
 
-      <table id="datatable" class="cell-border stripe hover">
-        <thead>
-          <th>#</th>
-          <th>Species Name</th>
-          <th>Data</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Species One</td>
-            <td>View Graph</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Species Two</td>
-            <td>View Graph</td>
-          </tr>  
-          <tr>
-            <td>3</td>
-            <td>Species Three</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>4</td>
-            <td>Species Four</td>
-            <td>View Graph</td>
-          </tr>    
-          <tr>
-            <td>5</td>
-            <td>Species Five</td>
-            <td>View Graph</td>
-          </tr>        
-          <tr>
-            <td>6</td>
-            <td>Species Six</td>
-            <td>View Graph</td>
-          </tr>      
-          <tr>
-            <td>7</td>
-            <td>Species Seven</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>8</td>
-            <td>Species Eight</td>
-            <td>View Graph</td>
-          </tr>              
-          <tr>
-            <td>9</td>
-            <td>Species Nine</td>
-            <td>View Graph</td>
-          </tr>             
-          <tr>
-            <td>10</td>
-            <td>Species Ten</td>
-            <td>View Graph</td>
-          </tr>                            
-        </tbody>
-      </table>
+        <div class="row">
+
+        <!-- table attributes column -->
+        <div class="col-lg-4">
+          <table class="table table-bordered table-striped"> 
+            <thead class="thead-light">
+              <th width="40%">Attribute</th>
+              <th>Value</th>  
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td><td>Species One</td>
+              </tr>
+              <tr>
+                <td>Height</td><td>1.5</td>
+              </tr>    
+              <tr>
+                <td>Diameter</td><td>3.4</td>
+              </tr>     
+              <tr>
+                <td>Location</td><td>Laguna, Rizal, Cebu, Zamboanga</td>
+              </tr>                    
+              <tr>
+                <td>Attribute #1</td><td>VALUE</td>
+              </tr>     
+              <tr>
+                <td>Attribute #2</td><td>VALUE</td>
+              </tr>             
+              <tr>
+                <td>Attribute #3</td><td>VALUE</td>
+              </tr>                                                        
+            </tbody>
+          </table>
+        </div>       
+        <!-- /.table attributes column -->     
+
+        <!-- graph column -->
+        <div class="col-lg-8">
+            <canvas id="graph" width="400" height="400" style="float:right;"></canvas>
+        </div>
+        <!-- /.graph column -->
+
+        </div>
+
     </div>
     <!-- /.container -->
 
@@ -163,19 +144,8 @@
     <!-- ChartJS -->
     <script type="text/javascript" charset="utf8" src="./vendor/chartjs/Chart.bundle.min.js"></script>   
 
-    <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="./vendor/datatables/jquery.dataTables.js"></script>   
     <script type="text/javascript">
       $(document).ready( function () {
-        // Initialize data tables
-        var table = $('#datatable').DataTable();
-        $('#datatable tbody').on('click', 'tr', function () {
-          $('#modal_graph').modal();
-          var data = table.row( this ).data();
-          console.log( 'You clicked on '+data[0]+'\'s row' );
-          window.location = 'page_species.html';
-        });          
-
         // Initialize graph
         var ctx = document.getElementById("graph").getContext('2d');
         var myChart = new Chart(ctx, {
