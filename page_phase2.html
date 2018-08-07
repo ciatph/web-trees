@@ -170,7 +170,6 @@
         // Initialize data tables
         var table = $('#datatable').DataTable();
         $('#datatable tbody').on('click', 'tr', function () {
-          $('#modal_graph').modal();
           var data = table.row( this ).data();
           console.log( 'You clicked on '+data[0]+'\'s row' );
           window.location = 'page_species.html';
