@@ -67,65 +67,67 @@
       <h1 class="mt-5">Phase 1 Tree Species List</h1>
       <p class="lead">Below are a list of tree species for Phase 1. Click on <i>View Graph</i> to view its average height and diameter graph.</p><br><br>
 
-      <table id="datatable" class="cell-border stripe hover">
-        <thead>
-          <th>#</th>
-          <th>Species Name</th>
-          <th>Data</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Species One</td>
-            <td>View Graph</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Species Two</td>
-            <td>View Graph</td>
-          </tr>  
-          <tr>
-            <td>3</td>
-            <td>Species Three</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>4</td>
-            <td>Species Four</td>
-            <td>View Graph</td>
-          </tr>    
-          <tr>
-            <td>5</td>
-            <td>Species Five</td>
-            <td>View Graph</td>
-          </tr>        
-          <tr>
-            <td>6</td>
-            <td>Species Six</td>
-            <td>View Graph</td>
-          </tr>      
-          <tr>
-            <td>7</td>
-            <td>Species Seven</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>8</td>
-            <td>Species Eight</td>
-            <td>View Graph</td>
-          </tr>              
-          <tr>
-            <td>9</td>
-            <td>Species Nine</td>
-            <td>View Graph</td>
-          </tr>             
-          <tr>
-            <td>10</td>
-            <td>Species Ten</td>
-            <td>View Graph</td>
-          </tr>                            
-        </tbody>
-      </table>
+      <div id="container_table" style="display: none;">
+        <table id="datatable" class="cell-border stripe hover">
+          <thead>
+            <th>#</th>
+            <th>Species Name</th>
+            <th>Data</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Species One</td>
+              <td>View Graph</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Species Two</td>
+              <td>View Graph</td>
+            </tr>  
+            <tr>
+              <td>3</td>
+              <td>Species Three</td>
+              <td>View Graph</td>
+            </tr>       
+            <tr>
+              <td>4</td>
+              <td>Species Four</td>
+              <td>View Graph</td>
+            </tr>    
+            <tr>
+              <td>5</td>
+              <td>Species Five</td>
+              <td>View Graph</td>
+            </tr>        
+            <tr>
+              <td>6</td>
+              <td>Species Six</td>
+              <td>View Graph</td>
+            </tr>      
+            <tr>
+              <td>7</td>
+              <td>Species Seven</td>
+              <td>View Graph</td>
+            </tr>       
+            <tr>
+              <td>8</td>
+              <td>Species Eight</td>
+              <td>View Graph</td>
+            </tr>              
+            <tr>
+              <td>9</td>
+              <td>Species Nine</td>
+              <td>View Graph</td>
+            </tr>             
+            <tr>
+              <td>10</td>
+              <td>Species Ten</td>
+              <td>View Graph</td>
+            </tr>                            
+          </tbody>
+        </table>
+      </div>
     </div>
     <!-- /.container -->
 
@@ -174,6 +176,8 @@
           var data = table.row( this ).data();
           console.log( 'You clicked on '+data[0]+'\'s row' );
         });          
+
+        $('#container_table').css('display', 'block');
 
         // Initialize graph
         var ctx = document.getElementById("graph").getContext('2d');
