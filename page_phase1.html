@@ -209,6 +209,8 @@
           console.log( 'You clicked on '+data[0]+'\'s row' );
         });          
 
+        $('#container_table').css('display', 'block');
+
         // Initialize graph
         var ctx = document.getElementById("graph").getContext('2d');
         var myChart = new Chart(ctx, {
