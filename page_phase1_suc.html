@@ -8,13 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tree Data - Species</title>
+    <title>Tree Data - Phase 1</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/logo-nav.css" rel="stylesheet">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="./vendor/datatables/jquery.dataTables.css">
   </head>
 
   <body>
@@ -23,8 +26,8 @@
     <nav class="navbar navbar-expand-lg  navbar-light bg-light fixed-top shadow p-3 mb-5 rounded">
       <div class="container">
         <a class="navbar-brand" href="#" style="position: absolute; padding-top: 0px;">
-          <img src="./images/logo/PFEN_logo_100.png" alt="" style="height: parent; width: 80px;">
-        </a>
+            <img src="./images/logo/PFEN_logo_100.png" alt="" style="height: parent; width: 80px;">
+          </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,53 +64,39 @@
 
     <!-- Page Content -->
     <div class="container">
-        <h2 class="mt-5">Bolong Eta</h2>
-        <h4>Ebenaccae Diaspyros <i>pilosantrhera</i></h4><br>
+        <h3 class="mt-5">Phase 1 SUC Partners</h3>
+        <p class="lead">Below are a list of SUC partners for Phase 1. Click on <i>View Data</i> to view their list of tree species with average height and diameter graphs.</p><br><br>
 
-        <div class="row">
-
-        <!-- table attributes column -->
-        <div class="col-lg-4">
-          <table class="table table-bordered table-striped"> 
-            <thead class="thead-light">
-              <th width="40%">Attribute</th>
-              <th>Value</th>  
+    <div id="container_table">
+        <table id="datatable" class="cell-border stripe hover">
+            <thead> 
+            <th>#</th>
+            <th>SUC</th>
+            <th>Location</th>
+            <th>Data</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Name</td><td>Bolong Eta</td>
-              </tr>
-              <tr>
-                <td>Demo Farm Location</td>
-                <td>Don Mariano Marcos Memorial State University</td>
-              </tr>
-              <tr>
-                <td>Collection Site</td>
-                <td>Batac, Ilocos Norte</td>
-              </tr>
-              <tr>
-                <td>Date Planted</td>
-                <td>August 26, 2017</td>
-              </tr>
-              <tr>
-                <td>Avg. Height</td><td>0.2 m</td>
-              </tr>    
-              <tr>
-                <td>Avg. Diameter</td><td>0.3 cm</td>
-              </tr>                                                                              
+            <tr>
+                <td>1</td>
+                <td>Don Mariano Marcos Memorial State University (DMMSU)</td>
+                <td>Bauotan, La Union</td>
+                <td>View Graph</td>
+            </tr>       
+            <tr>
+                <td>2</td>
+                <td>UP Los Banos (UPLB)</td>
+                <td>Los Banos, Laguna</td>
+                <td>View Graph</td>
+            </tr>        
+            <tr>
+                <td>3</td>
+                <td>UP Diliman (UPD)</td>
+                <td>Diliman, Quezon City</td>
+                <td>View Graph</td>
+            </tr>            
             </tbody>
-          </table>
-        </div>       
-        <!-- /.table attributes column -->     
-
-        <!-- graph column -->
-        <div class="col-lg-8">
-            <canvas id="graph" width="400" height="400" style="float:right;"></canvas>
-        </div>
-        <!-- /.graph column -->
-
-        </div>
-
+        </table>
+    </div>
     </div>
     <!-- /.container -->
 
@@ -145,8 +134,21 @@
     <!-- ChartJS -->
     <script type="text/javascript" charset="utf8" src="./vendor/chartjs/Chart.bundle.min.js"></script>   
 
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="./vendor/datatables/jquery.dataTables.js"></script>   
     <script type="text/javascript">
       $(document).ready( function () {
+        // Initialize data tables
+        var table = $('#datatable').DataTable({
+            initComplete: function(settings, json){
+                console.log('loaded!')
+                $("#container_table").css('display', 'block');
+            }
+        });
+        $('#datatable tbody').on('click', 'tr', function () {
+            window.location = "page_phase1.html"
+        });          
+
         // Initialize graph
         var ctx = document.getElementById("graph").getContext('2d');
         var myChart = new Chart(ctx, {
@@ -154,22 +156,22 @@
           data: {
               labels: ["2017", "2018"],
               datasets: [{
-                label: 'Height (m)',
+                label: 'Height',
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255,99,132,1)',
                 borderWidth: 1,
                 data: [
-                  0.2, 
-                  0.34
+                  1.5, 
+                  3.4
                 ]
               }, {
-                label: 'Diameter (cm)',
+                label: 'Diameter',
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
                 data: [
-                  0.25,
-                  0.40
+                  5.6,
+                  7.9
                 ]
             }]
           },

@@ -21,3 +21,17 @@
 .bg-dark {
   background-color: #ffffff;
 }
+
+.carousel-caption h3 {
+  color: #ffffff;
+  font-style: italic;
+  /*text-shadow: 4px 4px 2px rgba(14, 15, 15, 1);* */
+  text-shadow: 5px 5px 5px #242424;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  float: right;
+}
