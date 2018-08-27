@@ -1,0 +1,339 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#">
+
+    <title>Data Encoder for Phase 2</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/form-validation.css" rel="stylesheet">
+    <link href="css/logo-nav.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg  navbar-light bg-light fixed-top shadow p-3 mb-5 rounded">
+      <div class="container">
+        <a class="navbar-brand" href="#" style="position: absolute; padding-top: 0px;">
+          <!-- <img src="./images/logo/PFEN_logo_100.png" alt="" style="height: parent; width: 80px;"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Partners</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Project Phase
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="page_phase1_suc.html">Phase 1</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="page_phase2.html">Phase 2</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>            
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Data Encoder
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="form_phase1.html">Encoder Phase 1</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="form_phase2.html">Encoder Phase 2</a>
+              </div>
+            </li>       
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Logout</a>
+            </li>                    
+          </ul>
+        </div>
+      </div>
+    </nav>    
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <!-- <img class="d-block mx-auto mb-4" src="./images/logo/PFEN_logo_100.png" alt="" width="72" height="72"> -->
+        <h2>Data Encoder</h2>
+        <p class="lead">Please encode details for Phase 2's species.</p>
+      </div>
+
+      <div class="row">
+        <!-- space -->
+        <div class="col-md-2 order-md-1 mb-4"></div>  
+
+        <div class="col-md-8 order-md-2">
+            <h4 class="mb-3">Species - Phase 2</h4>
+            <form class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="encoderid">Encoder ID</label>
+                        <input type="text" class="form-control" id="encoderid" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Number code is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="suc">SUC</label>
+                    <select class="custom-select d-block w-100" id="suc" required>
+                        <option value="">Choose...</option>
+                        <option>Don Mariano Marcos Memorial State University (DMMSU)</option>
+                        <option>UP Los Banos</option>
+                        <option>UP Diliman</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="encoderid">Location</label><br>
+                    <span id="location"><i>Location will be loaded from SUC.</i></span>
+                </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <div class="mb-3">
+                    <label for="common">Demo Farm</label>
+                    <div class="input-group">
+                    <select class="custom-select d-block w-100" id="suc" required>
+                        <option value="">Choose...</option>
+                        <option>Don Mariano Marcos Memorial State University (DMMSU)</option>
+                        <option>UP Los Banos</option>
+                        <option>UP Diliman</option>
+                    </select>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        A Demo Farm must be selected.
+                    </div>
+                    </div>
+                </div>      
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="family">Province</label>
+                        <select class="custom-select d-block w-100" id="province" required>
+                            <option value="">Choose...</option>
+                            <option>Laguna</option>
+                            <option>San Mateo</option>
+                            <option>Pangasinan</option>
+                            <option>Nueva Ecija</option>
+                            <option>Bicol</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            A Province must be selected
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label for="spp">Town</label>
+                        <select class="custom-select d-block w-100" id="town" required>
+                            <option value="">Choose...</option>
+                            <option>Los Banos</option>
+                            <option>Bae</option>
+                            <option>Pila</option>
+                            <option>Binan</option>
+                            <option>Sta. Rosa</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            A Town must be selected
+                        </div>
+                    </div>
+                </div>              
+
+                <hr class="mb-4">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="family">Family</label>
+                        <select class="custom-select d-block w-100" id="family" required>
+                            <option value="">Choose...</option>
+                            <option>Dilleniaceae</option>
+                            <option>Dipterocarpaceae</option>
+                            <option>Ebenaceae</option>
+                            <option>Fabaceae</option>
+                            <option>Myrtaceae</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            A Family Name must be selected
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="spp">Scientific Plant Name</label>
+                        <select class="custom-select d-block w-100" id="family" required>
+                            <option value="">Choose...</option>
+                            <option>primulaefolia</option>
+                            <option>brandegeana</option>
+                            <option>coccinea</option>
+                            <option>strictum</option>
+                            <option>tuberosa</option>
+                    </select>
+                    <div class="invalid-feedback">
+                            A Scientific Plant Name must be selected
+                    </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="common">Common Name</label>
+                    <div class="input-group">
+                        <select class="custom-select d-block w-100" id="common" required>
+                            <option value="">Choose...</option>
+                            <option>Malakatmon</option>
+                            <option>Katmon</option>
+                            <option>Katmon Bayani</option>
+                        </select>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            A Common Name must be selected.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address">Year Planted</label>
+                    <input type="text" class="form-control" id="date_planted" placeholder="2018" required>
+                    <div class="invalid-feedback">
+                        Please enter year when tree was planted.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="suc">Average Height (m)</label>
+                        <input type="text" class="form-control" id="height" placeholder="" value="" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Average height must be provided.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="suc">Average Diameter (cm)</label>
+                        <input type="text" class="form-control" id="diameter" placeholder="" value="" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Average diameter must be provided.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- picture upload -->
+                <div class="mb-3">
+                    <label for="picture">Upload Picture</label>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <span class="btn btn-default btn-file">
+                                Browse... <input type="file" id="imgInp" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </span>
+                        </span>
+                        <input type="text" class="form-control" readonly>
+                    </div>
+                    <img id='img-upload'/>
+                </div>
+
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2018-2019 UPLB</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./vendor/jquery/jquery-3.2.1.slim.min.js"></script>
+    <script src="./vendor/popper.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        // upload picture
+        $(document).on('change', '.btn-file :file', function() {
+          var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+          input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function(event, label) {
+            
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+            
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+          
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        }); 	
+     
+        window.addEventListener('load', function() {
+            // display suc location
+            $('#suc').change(function(){
+                $('#location').html("Los Banos, Laguna");
+            }); 
+
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>
