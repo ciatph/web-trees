@@ -17,3 +17,7 @@ body {
 #graph {
   height: 300px;
 }
+
+#container_table {
+  display: none;
+}

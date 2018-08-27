@@ -67,34 +67,36 @@
         <h3 class="mt-5">Phase 1 SUC Partners</h3>
         <p class="lead">Below are a list of SUC partners for Phase 1. Click on <i>View Data</i> to view their list of tree species with average height and diameter graphs.</p><br><br>
 
-      <table id="datatable" class="cell-border stripe hover">
-        <thead> 
-          <th>#</th>
-          <th>SUC</th>
-          <th>Location</th>
-          <th>Data</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Don Mariano Marcos Memorial State University (DMMSU)</td>
-            <td>Bauotan, La Union</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>2</td>
-            <td>UP Los Banos (UPLB)</td>
-            <td>Los Banos, Laguna</td>
-            <td>View Graph</td>
-          </tr>        
-          <tr>
-            <td>3</td>
-            <td>UP Diliman (UPD)</td>
-            <td>Diliman, Quezon City</td>
-            <td>View Graph</td>
-          </tr>            
-        </tbody>
-      </table>
+    <div id="container_table">
+        <table id="datatable" class="cell-border stripe hover">
+            <thead> 
+            <th>#</th>
+            <th>SUC</th>
+            <th>Location</th>
+            <th>Data</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Don Mariano Marcos Memorial State University (DMMSU)</td>
+                <td>Bauotan, La Union</td>
+                <td>View Graph</td>
+            </tr>       
+            <tr>
+                <td>2</td>
+                <td>UP Los Banos (UPLB)</td>
+                <td>Los Banos, Laguna</td>
+                <td>View Graph</td>
+            </tr>        
+            <tr>
+                <td>3</td>
+                <td>UP Diliman (UPD)</td>
+                <td>Diliman, Quezon City</td>
+                <td>View Graph</td>
+            </tr>            
+            </tbody>
+        </table>
+    </div>
     </div>
     <!-- /.container -->
 
@@ -137,7 +139,12 @@
     <script type="text/javascript">
       $(document).ready( function () {
         // Initialize data tables
-        var table = $('#datatable').DataTable();
+        var table = $('#datatable').DataTable({
+            initComplete: function(settings, json){
+                console.log('loaded!')
+                $("#container_table").css('display', 'block');
+            }
+        });
         $('#datatable tbody').on('click', 'tr', function () {
             window.location = "page_phase1.html"
         });          

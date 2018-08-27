@@ -67,65 +67,67 @@
       <h3 class="mt-5">Phase 2 Tree Species List</h3>
       <p class="lead">Below are a list of tree species for Phase 2. Click on <i>View Graph</i> to view its attributes and average height and diameter graph.</p><br><br>
 
-      <table id="datatable" class="cell-border stripe hover">
-        <thead>
-          <th>#</th>
-          <th>Species Name</th>
-          <th>Data</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Species One</td>
-            <td>View Graph</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Species Two</td>
-            <td>View Graph</td>
-          </tr>  
-          <tr>
-            <td>3</td>
-            <td>Species Three</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>4</td>
-            <td>Species Four</td>
-            <td>View Graph</td>
-          </tr>    
-          <tr>
-            <td>5</td>
-            <td>Species Five</td>
-            <td>View Graph</td>
-          </tr>        
-          <tr>
-            <td>6</td>
-            <td>Species Six</td>
-            <td>View Graph</td>
-          </tr>      
-          <tr>
-            <td>7</td>
-            <td>Species Seven</td>
-            <td>View Graph</td>
-          </tr>       
-          <tr>
-            <td>8</td>
-            <td>Species Eight</td>
-            <td>View Graph</td>
-          </tr>              
-          <tr>
-            <td>9</td>
-            <td>Species Nine</td>
-            <td>View Graph</td>
-          </tr>             
-          <tr>
-            <td>10</td>
-            <td>Species Ten</td>
-            <td>View Graph</td>
-          </tr>                            
-        </tbody>
-      </table>
+      <div id="container_table">
+        <table id="datatable" class="cell-border stripe hover">
+          <thead>
+            <th>#</th>
+            <th>Species Name</th>
+            <th>Data</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Species One</td>
+              <td>View Graph</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Species Two</td>
+              <td>View Graph</td>
+            </tr>  
+            <tr>
+              <td>3</td>
+              <td>Species Three</td>
+              <td>View Graph</td>
+            </tr>       
+            <tr>
+              <td>4</td>
+              <td>Species Four</td>
+              <td>View Graph</td>
+            </tr>    
+            <tr>
+              <td>5</td>
+              <td>Species Five</td>
+              <td>View Graph</td>
+            </tr>        
+            <tr>
+              <td>6</td>
+              <td>Species Six</td>
+              <td>View Graph</td>
+            </tr>      
+            <tr>
+              <td>7</td>
+              <td>Species Seven</td>
+              <td>View Graph</td>
+            </tr>       
+            <tr>
+              <td>8</td>
+              <td>Species Eight</td>
+              <td>View Graph</td>
+            </tr>              
+            <tr>
+              <td>9</td>
+              <td>Species Nine</td>
+              <td>View Graph</td>
+            </tr>             
+            <tr>
+              <td>10</td>
+              <td>Species Ten</td>
+              <td>View Graph</td>
+            </tr>                            
+          </tbody>
+        </table>
+      </div>
     </div>
     <!-- /.container -->
 
@@ -168,7 +170,12 @@
     <script type="text/javascript">
       $(document).ready( function () {
         // Initialize data tables
-        var table = $('#datatable').DataTable();
+        var table = $('#datatable').DataTable({
+            initComplete: function(settings, json){
+                console.log('loaded!')
+                $("#container_table").css('display', 'block');
+            }
+        });
         $('#datatable tbody').on('click', 'tr', function () {
           $('#modal_graph').modal();
           var data = table.row( this ).data();
